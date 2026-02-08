@@ -1,0 +1,10 @@
+asgiref==3.11.1
+Django==5.2.11
+pillow==12.0.0
+psycopg==3.3.2
+PyJWT==2.10.1
+python-dotenv==1.2.1
+sqlparse==0.5.5
+typing_extensions==4.15.0
+tzdata==2025.3
+unicorn==2.1.4

@@ -11,9 +11,7 @@ from .forms import CampaignForm
 from django.conf import settings
 from django.shortcuts import get_object_or_404
 
-GS_CREDENTIALS_PATH = (
-    settings.BASE_DIR / "credentials" / "google" / "retano-sheets-280180d4c814.json"
-)
+
 
 GS_SPREADSHEET_ID = "1uObBPhTJJCQYJwLH3e_60dYGMPeNTL4clu6P0L7ccNM"
 RAWINPUTS_SPREADSHEET_ID = "1uObBPhTJJCQYJwLH3e_60dYGMPeNTL4clu6P0L7ccNM"
@@ -51,12 +49,12 @@ class CampaignCreateViewWIthSheet(LoginRequiredMixin, CreateView):
         campaign.save()
 
         try:
-            credentials = Credentials.from_service_account_file(
-                GS_CREDENTIALS_PATH,
+            credentials = Credentials.from_service_account_info(
+                settings.GOOGLE_SERVICE_ACCOUNT_INFO,
                 scopes=[
                     "https://www.googleapis.com/auth/spreadsheets",
                     "https://www.googleapis.com/auth/drive",
-                ],
+                 ],
             )
             client = gspread.authorize(credentials)
 

@@ -1,6 +1,6 @@
 import pandas as pd
 import gspread
-from django.shortcuts import render 
+from django.shortcuts import render , redirect 
 from google.oauth2.service_account import Credentials
 from django.contrib import messages
 from django.urls import reverse_lazy
@@ -139,4 +139,6 @@ class CampaignDeleteView(LoginRequiredMixin, DeleteView):
         )
 
 def DashBoardView(request):
+    if not request.user.is_authenticated: 
+        return redirect("login")
     return render(request, 'campaigns/dashboard.html' , {})

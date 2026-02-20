@@ -14,7 +14,7 @@
     --warning: #f1c40f;
     --danger: #e74c3c;
     --radius: 16px;
-    --shadow: 0 8px 25px rgba(0,0,0,.06);
+    --shadow: 0 8px 25px rgba(0, 0, 0, .06);
 }
 
 /* =========================
@@ -45,33 +45,41 @@ body {
 ========================= */
 .sidebar {
     width: 20%;
-    background: var(--white);
+    /*background: var(--primary);   /* به جای var(--white) */
     padding: 30px;
     border-left: 1px solid var(--border);
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    background-color: #e66d00;
 }
-
 .brand {
     display: flex;
     align-items: center;
+    /* کاملاً هم‌تراز عمودی */
     gap: 12px;
     font-size: 22px;
     font-weight: bold;
     color: var(--primary);
     margin-bottom: 40px;
+
+}
+.brand-text {
+    line-height: 1;
 }
 
-.brand img {
-    width: 36px;
-    height: 36px;
+.brand-img {
+    width: 50px !important;      /* کمی بزرگ‌تر از متن */
+    height: 50px !important;
     object-fit: contain;
+    display: block;
 }
 
 .nav-menu {
-    list-style: none;
-    padding: 0;
+   list-style: none;
+    padding-left: 0; /* حذف padding پیش‌فرض ul */
+    margin: 0; /* حذف margin پیش‌فرض ul */
+    
 }
 
 .nav-menu li {
@@ -158,7 +166,6 @@ body {
 .status-card,
 .plan-card,
 .service-box,
-.campaigns-card,
 .alerts-card,
 .ticket-table,
 .ticket-row,
@@ -169,7 +176,16 @@ body {
     box-shadow: var(--shadow);
     padding: 20px;
     margin-bottom: 20px;
+    width:400px;
+    height:400px;
 }
+.campaigns-card{    background: var(--white);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    padding: 20px;
+    margin-bottom: 20px;
+    width:400px;
+    height:400px;}
 
 /* =========================
    DASHBOARD CARDS
@@ -214,6 +230,7 @@ body {
 
 .chart-card {
     padding: 20px;
+    
 }
 
 /* =========================
@@ -316,21 +333,28 @@ body {
     gap: 20px;
     margin-bottom: 25px;
 }
+
 .tickets-header {
-    display: flex;                 /* می‌کنه عناصر در یک خط کنار هم */
-    justify-content: space-between; /* عنوان سمت چپ، دکمه سمت راست */
-    align-items: center;           /* تراز عمودی وسط */
-    margin-bottom: 20px;           /* فاصله با کارت‌ها */
+    display: flex;
+    /* می‌کنه عناصر در یک خط کنار هم */
+    justify-content: space-between;
+    /* عنوان سمت چپ، دکمه سمت راست */
+    align-items: center;
+    /* تراز عمودی وسط */
+    margin-bottom: 20px;
+    /* فاصله با کارت‌ها */
 }
+
 .ticket-status {
-    display: flex;           
-    justify-content: space-between; 
-    gap: 10px;      
-     margin-top: 30px;          
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    margin-top: 30px;
     margin-bottom: 30px;
 }
+
 .status-card {
-    flex: 0 0 calc(25% - 7.5px);  
+    flex: 0 0 calc(25% - 7.5px);
     background: var(--white);
     border-radius: var(--radius);
     box-shadow: var(--shadow);
@@ -342,7 +366,7 @@ body {
 .info-item {
     padding: 18px 20px;
     border-radius: 20px;
-    box-shadow: 0 8px 20px rgba(0,0,0,0.04);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.04);
     display: flex;
     flex-direction: column;
     gap: 6px;
@@ -358,9 +382,17 @@ body {
     color: #333;
 }
 
-.info-item.status.active strong { color: var(--primary); }
-.info-item.status.waiting strong { color: #999; }
-.info-item.status.closed strong { color: var(--success); }
+.info-item.status.active strong {
+    color: var(--primary);
+}
+
+.info-item.status.waiting strong {
+    color: #999;
+}
+
+.info-item.status.closed strong {
+    color: var(--success);
+}
 
 .ticket-row {
     display: grid;
@@ -379,8 +411,13 @@ body {
     border-bottom: none;
 }
 
-.open { color: var(--primary); }
-.closed { color: #999; }
+.open {
+    color: var(--primary);
+}
+
+.closed {
+    color: #999;
+}
 
 /* =========================
    FORMS
@@ -396,7 +433,9 @@ body {
     flex-direction: column;
 }
 
-.field.full { grid-column: span 2; }
+.field.full {
+    grid-column: span 2;
+}
 
 .field label {
     margin-bottom: 8px;
@@ -459,28 +498,47 @@ body {
     font-size: 14px;
 }
 
-.success { color: var(--success); }
-.pending { color: var(--primary); }
+.success {
+    color: var(--success);
+}
+
+.pending {
+    color: var(--primary);
+}
 
 /* =========================
    PLANS & SERVICES
 ========================= */
-.plans, .services-grid {
+.plans,
+.services-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
     gap: 20px;
 }
 
-.plan-card, .service-box {
+.plan-card,
+.service-box {
     transition: 0.3s;
 }
 
-.plan-card.active { border: 2px solid var(--primary); }
+.plan-card.active {
+    border: 2px solid var(--primary);
+}
 
-.plan-card h4, .service-box h4 { margin-bottom: 10px; color: var(--text); }
-.plan-card p, .service-box p { color: var(--primary); font-weight: 600; }
+.plan-card h4,
+.service-box h4 {
+    margin-bottom: 10px;
+    color: var(--text);
+}
 
-.plan-card button, .service-box button {
+.plan-card p,
+.service-box p {
+    color: var(--primary);
+    font-weight: 600;
+}
+
+.plan-card button,
+.service-box button {
     transition: 0.3s;
 }
 
@@ -492,7 +550,9 @@ body {
     padding: 10px 20px;
 }
 
-.btn-orange:hover { background: var(--primary-dark); }
+.btn-orange:hover {
+    background: var(--primary-dark);
+}
 
 .btn-outline-orange {
     border: 1px solid var(--primary);
@@ -505,7 +565,20 @@ body {
    RESPONSIVE
 ========================= */
 @media (max-width: 768px) {
-    .sidebar { width: 100%; border-left: none; padding: 20px; order: 2; }
-    .content { width: 100%; padding: 20px; }
-    .plans, .services-grid { grid-template-columns: 1fr; }
+    .sidebar {
+        width: 100%;
+        border-left: none;
+        padding: 20px;
+        order: 2;
+    }
+
+    .content {
+        width: 100%;
+        padding: 20px;
+    }
+
+    .plans,
+    .services-grid {
+        grid-template-columns: 1fr;
+    }
 }

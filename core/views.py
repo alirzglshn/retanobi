@@ -10,6 +10,7 @@ from .models import Campaign
 from .forms import CampaignForm
 from django.conf import settings
 from django.shortcuts import get_object_or_404
+from django.views.decorators.csrf import ensure_csrf_cookie
 
 
 
@@ -138,6 +139,7 @@ class CampaignDeleteView(LoginRequiredMixin, DeleteView):
             Campaign, pk=self.kwargs["pk"], tenant_id=self.request.user.id
         )
 
+@ensure_csrf_cookie
 def DashBoardView(request):
     if not request.user.is_authenticated: 
         return redirect("login")

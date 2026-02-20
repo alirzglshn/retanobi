@@ -36,24 +36,28 @@ LOGIN_REDIRECT_URL = 'dashboard-view'
 LOGOUT_REDIRECT_URL = 'login'
 
 
-
+ # "panel.retano360.com",
+    # "retano360.com",
+    # "www.retano360.com",
 ALLOWED_HOSTS = [
-    "panel.retano360.com",
-    "retano360.com",
-    "www.retano360.com",
+    "*"
 ]
 
-DEBUG = os.getenv("DJANGO_DEBUG") == "True"
-
+ALLOWED_HOSTS = ["127.0.0.1", "localhost"]
 
 CSRF_TRUSTED_ORIGINS = [
-    "https://retano360.com",
-    "https://www.retano360.com",
-    "https://panel.retano360.com",
+    "http://127.0.0.1:8000",
+    "http://localhost:8000",
 ]
 
- 
+DEBUG = True
 
+CSRF_COOKIE_SECURE = False
+SESSION_COOKIE_SECURE = False
+SECURE_SSL_REDIRECT = False
+
+
+ 
 
 # Application definition
 
@@ -81,22 +85,7 @@ MIDDLEWARE = [
     
 ]
 
-SECURE_SSL_REDIRECT = not DEBUG
-SESSION_COOKIE_SECURE = True
-CSRF_COOKIE_SECURE = True
-SECURE_HSTS_SECONDS = 31536000
-SECURE_HSTS_INCLUDE_SUBDOMAINS = True
-SECURE_HSTS_PRELOAD = True
 
-
-
-
-# For local development
-if DEBUG:
-    ALLOWED_HOSTS = ["127.0.0.1", "localhost"]
-    CSRF_COOKIE_SECURE = False
-    SESSION_COOKIE_SECURE = False
-    SECURE_SSL_REDIRECT = False
 
 
 AUTH_USER_MODEL = 'users.CustomUser'

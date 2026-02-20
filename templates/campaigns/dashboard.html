@@ -164,9 +164,9 @@
         const retentionChart = new Chart(retentionCtx, {
             type: 'doughnut',
             data: {
-                labels: ['مشتریان فعال', 'مشتریان از دست رفته'],
+                labels: ['Retention Rate', 'Churn Rate'],
                 datasets: [{
-                    data: [72, 28],
+                    data: [29, 70],
                     backgroundColor: ['#ff7a00', '#ddd'],
                 }]
             },
@@ -181,16 +181,16 @@
         const campaignChart = new Chart(campaignCtx, {
             type: 'bar',
             data: {
-                labels: ['کمپین زمستانه', 'نوروزی', 'تخفیف ویژه', 'تابستانه'],
+                labels: ['1400', '1401', '1402', '1403','1404'],
                 datasets: [{
-                    label: 'بازدهی %',
-                    data: [85, 78, 92, 60],
+                    label: 'تومان',
+                    data: [248000, 325000, 498000, 782000, 1365000],
                     backgroundColor: '#ff7a00'
                 }]
             },
             options: {
                 responsive: true,
-                scales: { y: { beginAtZero: true, max: 100 } }
+                scales: { y: { beginAtZero: true, max: 1500000 } }
             }
         });
 
@@ -199,10 +199,10 @@
         const lineChart = new Chart(lineCtx, {
             type: 'line',
             data: {
-                labels: ['دی', 'بهمن', 'اسفند', 'فروردین', 'اردیبهشت'],
+                labels: ['1400', '1401', '1402', '1403', '1404'],
                 datasets: [{
-                    label: 'تعداد پیامک ارسال شده',
-                    data: [400, 550, 300, 700, 650],
+                    label: 'میلیارد تومان',
+                    data: [1.6, 4.7, 11.8, 23.4, 24.9],
                     borderColor: '#ff7a00',
                     backgroundColor: 'rgba(255,122,0,0.2)',
                     fill: true,
@@ -222,14 +222,14 @@
             data: {
                 labels: ['1400', '1401', '1402', '1403', '1404'],
                 datasets: [{
-                    label: 'بازدهی %',
-                    data: [85, 78, 92, 60],
+                    label: 'تعداد مشتریان',
+                    data: [6280, 12945, 20410, 27650,16930],
                     backgroundColor: '#ff7a00'
                 }]
             },
             options: {
                 responsive: true,
-                scales: { y: { beginAtZero: true, max: 100 } }
+                scales: { y: { beginAtZero: true, max: 28000 } }
             }
         });
 
